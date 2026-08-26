@@ -21,11 +21,11 @@ export default function Home() {
       <div className="mx-auto flex min-h-dvh w-full max-w-md flex-col px-6 pb-8 pt-10 sm:px-8">
         <header className="flex items-center justify-center">
           <Image
-            src="/logo.jpg"
+            src="/logo.svg"
             alt="FinTrack"
-            width={180}
-            height={60}
-            className="h-12 w-auto object-contain"
+            width={96}
+            height={96}
+            className="h-16 w-16 object-contain"
             priority
           />
         </header>
