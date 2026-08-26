@@ -48,6 +48,7 @@ export default function Dashboard() {
   };
 
   const menuItems = menuOpen === "operations" ? operationItems : profileItems;
+  const menuPosition = menuOpen === "operations" ? "left-[25%]" : "right-[25%]";
 
   return (
     <main className="min-h-dvh bg-[#f7f9fa] text-slate-950">
@@ -60,7 +61,7 @@ export default function Dashboard() {
       {menuOpen && <button type="button" aria-label="Закрыть меню" onClick={() => setMenuOpen(null)} className="fixed inset-0 z-30 h-full w-full cursor-default bg-transparent" />}
 
       {menuOpen && (
-        <div className="fixed bottom-[92px] left-1/2 z-40 w-[190px] -translate-x-1/2 overflow-hidden rounded-[20px] border border-slate-100 bg-white p-1.5 shadow-[0_14px_45px_rgba(15,23,42,0.16)]">
+        <div className={`fixed bottom-[92px] z-40 w-[190px] overflow-hidden rounded-[20px] border border-slate-100 bg-white p-1.5 shadow-[0_14px_45px_rgba(15,23,42,0.16)] ${menuPosition}`}>
           {menuItems.map((item) => (
             <button key={item.label} type="button" onClick={() => { setActiveTab(item.label); setMenuOpen(null); }} className="flex w-full items-center gap-3 rounded-[14px] px-4 py-3 text-left text-sm font-semibold text-slate-700 transition-colors hover:bg-[#67D1DE]/10 active:scale-[0.98]">
               <span className="flex h-8 w-8 items-center justify-center rounded-full bg-[#67D1DE]/12 text-lg text-[#67D1DE]">{item.icon}</span>{item.label}
