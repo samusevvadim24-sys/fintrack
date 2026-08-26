@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useState } from "react";
 
 const keys = ["1", "2", "3", "4", "5", "6", "7", "8", "9"];
@@ -18,11 +19,15 @@ export default function Home() {
   return (
     <main className="min-h-dvh overflow-hidden bg-[#f6f7f9] text-slate-950">
       <div className="mx-auto flex min-h-dvh w-full max-w-md flex-col px-6 pb-8 pt-10 sm:px-8">
-        <header className="flex items-center gap-3">
-          <div className="flex h-10 w-10 items-center justify-center rounded-[14px] bg-slate-950 text-sm font-bold tracking-tight text-white shadow-lg shadow-slate-950/15">
-            F
-          </div>
-          <span className="text-lg font-semibold tracking-[-0.03em]">FinTrack</span>
+        <header className="flex items-center justify-center">
+          <Image
+            src="/logo.jpg"
+            alt="FinTrack"
+            width={180}
+            height={60}
+            className="h-12 w-auto object-contain"
+            priority
+          />
         </header>
 
         <section className="flex flex-1 flex-col items-center justify-center pb-4 pt-10">
