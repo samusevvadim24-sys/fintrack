@@ -17,55 +17,43 @@ export default function Home() {
   }
 
   return (
-    <main className="min-h-dvh overflow-hidden bg-[#f6f7f9] text-slate-950">
-      <div className="mx-auto flex min-h-dvh w-full max-w-md flex-col px-6 pb-8 pt-10 sm:px-8">
+    <main className="min-h-dvh overflow-hidden bg-[radial-gradient(circle_at_15%_5%,rgba(103,209,222,0.22),transparent_30%),radial-gradient(circle_at_90%_12%,rgba(250,125,104,0.20),transparent_32%),#f7f9fa] text-slate-950">
+      <div className="mx-auto flex min-h-dvh w-full max-w-md flex-col px-5 pb-7 pt-8 sm:px-8">
         <header className="flex items-center justify-center">
-          <div className="h-16 w-16 overflow-hidden rounded-[18px] shadow-[0_8px_30px_rgba(15,23,42,0.08)]">
-            <Image
-              src="/logo.svg"
-              alt="FinTrack"
-              width={1024}
-              height={1024}
-              className="h-full w-full scale-[2.1] object-cover"
-              priority
-            />
+          <div className="h-16 w-16 overflow-hidden rounded-[18px] shadow-[0_10px_30px_rgba(15,23,42,0.10)] ring-1 ring-white/80">
+            <Image src="/logo.svg" alt="FinTrack" width={1024} height={1024} className="h-full w-full scale-[2.1] object-cover" priority />
           </div>
         </header>
 
-        <section className="flex flex-1 flex-col items-center justify-center pb-4 pt-10">
-          <div className="mb-8 text-center">
-            <p className="mb-3 text-sm font-medium text-slate-500">Добро пожаловать</p>
-            <h1 className="text-[32px] font-semibold leading-tight tracking-[-0.04em]">Введите PIN-код</h1>
-            <p className="mt-3 text-sm leading-6 text-slate-500">Чтобы продолжить работу с FinTrack</p>
+        <section className="mt-7 flex flex-1 flex-col items-center rounded-[32px] border border-white/80 bg-white/75 px-5 py-7 shadow-[0_24px_70px_rgba(15,23,42,0.08)] backdrop-blur-xl">
+          <div className="text-center">
+            <p className="mb-2 text-sm font-semibold text-[#67D1DE]">Добро пожаловать</p>
+            <h1 className="text-[30px] font-semibold leading-tight tracking-[-0.04em]">Введите PIN-код</h1>
+            <p className="mt-2 text-sm leading-6 text-slate-500">Чтобы продолжить работу с FinTrack</p>
           </div>
 
-          <div className="mb-10 flex h-5 items-center justify-center gap-3" aria-label="Введено символов">
+          <div className="my-8 flex h-5 items-center justify-center gap-3" aria-label="Введено символов">
             {Array.from({ length: 6 }).map((_, index) => (
-              <span
-                key={index}
-                className={`h-3 w-3 rounded-full border transition-all duration-200 ${
-                  index < pin.length ? "scale-110 border-slate-950 bg-slate-950" : "border-slate-300 bg-transparent"
-                }`}
-              />
+              <span key={index} className={`h-3 w-3 rounded-full border transition-all duration-200 ${index < pin.length ? "scale-110 border-[#FA7D68] bg-[#FA7D68] shadow-[0_0_0_4px_rgba(250,125,104,0.12)]" : "border-slate-300 bg-white/50"}`} />
             ))}
           </div>
 
           <div className="grid w-full max-w-[300px] grid-cols-3 gap-x-5 gap-y-4">
             {keys.map((key) => (
-              <button key={key} type="button" onClick={() => addDigit(key)} className="flex h-[68px] items-center justify-center rounded-full bg-white text-[25px] font-medium shadow-[0_4px_20px_rgba(15,23,42,0.06)] transition active:scale-95 active:bg-slate-100" aria-label={`Цифра ${key}`}>
+              <button key={key} type="button" onClick={() => addDigit(key)} className="flex h-[68px] items-center justify-center rounded-full border border-white bg-white text-[25px] font-medium shadow-[0_5px_22px_rgba(15,23,42,0.07)] transition hover:-translate-y-0.5 hover:shadow-[0_8px_25px_rgba(15,23,42,0.10)] active:scale-95 active:bg-[#67D1DE]/10" aria-label={`Цифра ${key}`}>
                 {key}
               </button>
             ))}
             <div />
-            <button type="button" onClick={() => addDigit("0")} className="flex h-[68px] items-center justify-center rounded-full bg-white text-[25px] font-medium shadow-[0_4px_20px_rgba(15,23,42,0.06)] transition active:scale-95 active:bg-slate-100" aria-label="Цифра 0">0</button>
-            <button type="button" onClick={removeDigit} disabled={!pin.length} className="flex h-[68px] items-center justify-center rounded-full text-sm font-medium text-slate-500 transition active:scale-95 disabled:opacity-30" aria-label="Удалить последнюю цифру">←</button>
+            <button type="button" onClick={() => addDigit("0")} className="flex h-[68px] items-center justify-center rounded-full border border-white bg-white text-[25px] font-medium shadow-[0_5px_22px_rgba(15,23,42,0.07)] transition hover:-translate-y-0.5 active:scale-95 active:bg-[#67D1DE]/10" aria-label="Цифра 0">0</button>
+            <button type="button" onClick={removeDigit} disabled={!pin.length} className="flex h-[68px] items-center justify-center rounded-full text-sm font-semibold text-slate-500 transition active:scale-95 disabled:opacity-25" aria-label="Удалить последнюю цифру">⌫</button>
           </div>
 
-          <button type="button" disabled={pin.length !== 6} className="mt-8 h-12 w-full max-w-[300px] rounded-full bg-slate-950 text-sm font-semibold text-white shadow-lg shadow-slate-950/15 transition active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-25">Войти</button>
+          <button type="button" disabled={pin.length !== 6} className="mt-7 h-13 w-full max-w-[300px] rounded-full bg-[#FA7D68] px-6 py-3 text-sm font-semibold text-white shadow-[0_10px_25px_rgba(250,125,104,0.28)] transition hover:brightness-105 active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-25 disabled:shadow-none">Войти</button>
         </section>
 
-        <button type="button" className="mx-auto flex items-center gap-2 rounded-full px-4 py-3 text-sm font-medium text-slate-500 transition active:bg-white">
-          <span aria-hidden="true">⌁</span>
+        <button type="button" className="mx-auto mt-3 flex items-center gap-2 rounded-full px-4 py-3 text-sm font-semibold text-slate-500 transition hover:text-slate-800 active:bg-white/70">
+          <span className="flex h-7 w-7 items-center justify-center rounded-full bg-[#67D1DE]/15 text-[#3faeba]" aria-hidden="true">◉</span>
           Войти с помощью Face ID
         </button>
       </div>
