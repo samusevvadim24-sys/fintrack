@@ -25,7 +25,7 @@ export default function Home() {
           </div>
         </header>
 
-        <section className="mt-7 flex flex-1 flex-col items-center rounded-[32px] border border-white/80 bg-white/75 px-5 py-7 shadow-[0_24px_70px_rgba(15,23,42,0.08)] backdrop-blur-xl">
+        <section className="mt-7 flex flex-1 flex-col items-center px-1 py-7">
           <div className="text-center">
             <p className="mb-2 text-sm font-semibold text-[#67D1DE]">Добро пожаловать</p>
             <h1 className="text-[30px] font-semibold leading-tight tracking-[-0.04em]">Введите PIN-код</h1>
@@ -40,12 +40,12 @@ export default function Home() {
 
           <div className="grid w-full max-w-[300px] grid-cols-3 gap-x-5 gap-y-4">
             {keys.map((key) => (
-              <button key={key} type="button" onClick={() => addDigit(key)} className="flex h-[68px] items-center justify-center rounded-full border border-white bg-white text-[25px] font-medium shadow-[0_5px_22px_rgba(15,23,42,0.07)] transition hover:-translate-y-0.5 hover:shadow-[0_8px_25px_rgba(15,23,42,0.10)] active:scale-95 active:bg-[#67D1DE]/10" aria-label={`Цифра ${key}`}>
+              <button key={key} type="button" onClick={() => addDigit(key)} className="flex h-[68px] items-center justify-center rounded-full border border-white/70 bg-white/35 text-[25px] font-medium text-slate-900 shadow-none backdrop-blur-sm transition hover:bg-white/60 active:scale-95 active:bg-[#67D1DE]/15" aria-label={`Цифра ${key}`}>
                 {key}
               </button>
             ))}
             <div />
-            <button type="button" onClick={() => addDigit("0")} className="flex h-[68px] items-center justify-center rounded-full border border-white bg-white text-[25px] font-medium shadow-[0_5px_22px_rgba(15,23,42,0.07)] transition hover:-translate-y-0.5 active:scale-95 active:bg-[#67D1DE]/10" aria-label="Цифра 0">0</button>
+            <button type="button" onClick={() => addDigit("0")} className="flex h-[68px] items-center justify-center rounded-full border border-white/70 bg-white/35 text-[25px] font-medium text-slate-900 shadow-none backdrop-blur-sm transition hover:bg-white/60 active:scale-95 active:bg-[#67D1DE]/15" aria-label="Цифра 0">0</button>
             <button type="button" onClick={removeDigit} disabled={!pin.length} className="flex h-[68px] items-center justify-center rounded-full text-sm font-semibold text-slate-500 transition active:scale-95 disabled:opacity-25" aria-label="Удалить последнюю цифру">⌫</button>
           </div>
 
