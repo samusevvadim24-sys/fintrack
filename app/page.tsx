@@ -17,9 +17,8 @@ export default function Home() {
           <div className="h-16 w-16 shrink-0 overflow-hidden rounded-[18px] shadow-[0_10px_30px_rgba(15,23,42,0.10)] ring-1 ring-white/80">
             <Image src="/logo.svg" alt="FinTrack" width={1024} height={1024} className="h-full w-full scale-[2.1] object-cover" priority />
           </div>
-          <div>
-            <div className="text-[25px] font-bold leading-none tracking-[-0.045em] text-slate-900">Fin<span className="text-[#FA7D68]">T</span>rack</div>
-            <div className="mt-1.5 text-[10px] font-semibold uppercase tracking-[0.2em] text-slate-400">Your money, clearly</div>
+          <div className="text-[26px] font-semibold leading-none tracking-[-0.055em]" style={{ fontFamily: "ui-rounded, 'Arial Rounded MT Bold', 'Trebuchet MS', sans-serif" }}>
+            <span className="text-[#FA7D68]">F</span><span className="text-[#67D1DE]">T</span><span className="text-slate-900">inRack</span>
           </div>
         </header>
 
