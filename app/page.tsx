@@ -20,14 +20,16 @@ export default function Home() {
     <main className="min-h-dvh overflow-hidden bg-[#f6f7f9] text-slate-950">
       <div className="mx-auto flex min-h-dvh w-full max-w-md flex-col px-6 pb-8 pt-10 sm:px-8">
         <header className="flex items-center justify-center">
-          <Image
-            src="/logo.svg"
-            alt="FinTrack"
-            width={96}
-            height={96}
-            className="h-16 w-16 object-contain"
-            priority
-          />
+          <div className="h-16 w-16 overflow-hidden rounded-[18px] shadow-[0_8px_30px_rgba(15,23,42,0.08)]">
+            <Image
+              src="/logo.svg"
+              alt="FinTrack"
+              width={1024}
+              height={1024}
+              className="h-full w-full scale-[1.42] object-cover"
+              priority
+            />
+          </div>
         </header>
 
         <section className="flex flex-1 flex-col items-center justify-center pb-4 pt-10">
