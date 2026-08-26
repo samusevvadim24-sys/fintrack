@@ -30,13 +30,13 @@ export default function Home() {
           </div>
 
           <div className="my-8 flex h-5 items-center justify-center gap-3" aria-label="Введено символов">
-            {Array.from({ length: 6 }).map((_, index) => <span key={index} className={`h-3 w-3 rounded-full border transition-all duration-200 ${index < pin.length ? "scale-110 border-[#FA7D68] bg-[#FA7D68] shadow-[0_0_0_4px_rgba(250,125,104,0.12)]" : "border-slate-300 bg-white/50"}`} />)}
+            {Array.from({ length: 6 }).map((_, index) => <span key={index} className={`h-3 w-3 rounded-full border transition-all duration-300 ease-out ${index < pin.length ? "scale-110 border-[#FA7D68] bg-[#FA7D68] shadow-[0_0_0_4px_rgba(250,125,104,0.12)]" : "border-slate-300 bg-white/50"}`} />)}
           </div>
 
           <div className="grid w-full max-w-[300px] grid-cols-3 gap-x-5 gap-y-4">
-            {keys.map((key) => <button key={key} type="button" onClick={() => addDigit(key)} className="flex h-[68px] items-center justify-center rounded-full border border-white/70 bg-white/35 text-[25px] font-medium text-slate-900 shadow-none backdrop-blur-sm transition hover:bg-white/60 active:scale-95 active:bg-[#67D1DE]/15" aria-label={`Цифра ${key}`}>{key}</button>)}
+            {keys.map((key) => <button key={key} type="button" onClick={() => addDigit(key)} className="flex h-[68px] items-center justify-center rounded-full border border-white/70 bg-white/35 text-[25px] font-medium text-slate-900 shadow-none backdrop-blur-sm transition duration-150 hover:bg-white/60 active:scale-95 active:bg-[#67D1DE]/15" aria-label={`Цифра ${key}`}>{key}</button>)}
             <div />
-            <button type="button" onClick={() => addDigit("0")} className="flex h-[68px] items-center justify-center rounded-full border border-white/70 bg-white/35 text-[25px] font-medium text-slate-900 shadow-none backdrop-blur-sm transition hover:bg-white/60 active:scale-95 active:bg-[#67D1DE]/15" aria-label="Цифра 0">0</button>
+            <button type="button" onClick={() => addDigit("0")} className="flex h-[68px] items-center justify-center rounded-full border border-white/70 bg-white/35 text-[25px] font-medium text-slate-900 shadow-none backdrop-blur-sm transition duration-150 hover:bg-white/60 active:scale-95 active:bg-[#67D1DE]/15" aria-label="Цифра 0">0</button>
             <button type="button" onClick={removeDigit} disabled={!pin.length} className="flex h-[68px] items-center justify-center rounded-full text-sm font-semibold text-slate-500 transition active:scale-95 disabled:opacity-25" aria-label="Удалить последнюю цифру">⌫</button>
           </div>
 
