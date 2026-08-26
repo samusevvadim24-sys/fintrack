@@ -31,7 +31,7 @@ export default function Dashboard() {
             ))}
           </div>
 
-          <button type="button" aria-label="Добавить" className="absolute left-1/2 top-1/2 flex h-[60px] w-[60px] -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-[#FA7D68] text-[30px] font-light text-white shadow-[0_10px_25px_rgba(250,125,104,0.40)] transition-transform duration-200 hover:scale-105 active:scale-90">+</button>
+          <button type="button" aria-label="Добавить" className="absolute left-1/2 top-1/2 flex h-[60px] w-[60px] -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-[#67D1DE] text-[30px] font-light text-white shadow-[0_10px_25px_rgba(103,209,222,0.40)] transition-transform duration-200 hover:scale-105 active:scale-90">+</button>
 
           <div className="flex w-full items-center justify-between pl-10">
             {tabs.slice(2).map((tab) => (
