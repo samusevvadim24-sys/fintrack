@@ -1,16 +1,48 @@
+"use client";
+
+import { useState } from "react";
+
+const tabs = [
+  { label: "Главная", icon: "⌂" },
+  { label: "Расходы", icon: "▤" },
+  { label: "Цели", icon: "◎" },
+  { label: "Профиль", icon: "♙" },
+];
+
 export default function Dashboard() {
+  const [activeTab, setActiveTab] = useState("Главная");
+
   return (
-    <main className="min-h-dvh bg-[#f7f9fa] px-5 py-8 text-slate-950">
-      <div className="mx-auto flex min-h-[calc(100dvh-4rem)] w-full max-w-md flex-col">
-        <header>
-          <p className="text-sm font-semibold text-[#67D1DE]">FinTrack</p>
-          <h1 className="mt-2 text-[30px] font-semibold tracking-[-0.04em]">Главная</h1>
-        </header>
-        <section className="mt-8 rounded-[28px] bg-white p-6 shadow-[0_12px_35px_rgba(15,23,42,0.06)]">
-          <p className="text-sm text-slate-500">Баланс</p>
-          <p className="mt-2 text-4xl font-semibold tracking-tight">₽ 0</p>
-        </section>
+    <main className="min-h-dvh bg-[#f7f9fa] text-slate-950">
+      <div className="mx-auto min-h-dvh w-full max-w-md px-5 pb-28 pt-8 sm:px-8">
+        <div className="flex min-h-[calc(100dvh-7rem)] items-center justify-center">
+          <p className="text-sm text-slate-400">{activeTab}</p>
+        </div>
       </div>
+
+      <nav className="fixed inset-x-0 bottom-0 z-20 mx-auto w-full max-w-md px-4 pb-4">
+        <div className="relative flex h-[76px] items-center justify-between rounded-[28px] border border-white/80 bg-white/90 px-5 shadow-[0_12px_40px_rgba(15,23,42,0.10)] backdrop-blur-xl">
+          <div className="flex w-full items-center justify-between pr-10">
+            {tabs.slice(0, 2).map((tab) => (
+              <button key={tab.label} type="button" onClick={() => setActiveTab(tab.label)} className={`flex min-w-[64px] flex-col items-center gap-1.5 rounded-2xl px-2 py-2 transition-all duration-200 active:scale-90 ${activeTab === tab.label ? "text-[#FA7D68]" : "text-slate-400 hover:text-slate-600"}`}>
+                <span className="text-[23px] leading-none">{tab.icon}</span>
+                <span className="text-[10px] font-semibold">{tab.label}</span>
+              </button>
+            ))}
+          </div>
+
+          <button type="button" aria-label="Добавить" className="absolute left-1/2 top-1/2 flex h-[60px] w-[60px] -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-[#FA7D68] text-[30px] font-light text-white shadow-[0_10px_25px_rgba(250,125,104,0.35)] transition-transform duration-200 hover:scale-105 active:scale-90">+</button>
+
+          <div className="flex w-full items-center justify-between pl-10">
+            {tabs.slice(2).map((tab) => (
+              <button key={tab.label} type="button" onClick={() => setActiveTab(tab.label)} className={`flex min-w-[64px] flex-col items-center gap-1.5 rounded-2xl px-2 py-2 transition-all duration-200 active:scale-90 ${activeTab === tab.label ? "text-[#FA7D68]" : "text-slate-400 hover:text-slate-600"}`}>
+                <span className="text-[23px] leading-none">{tab.icon}</span>
+                <span className="text-[10px] font-semibold">{tab.label}</span>
+              </button>
+            ))}
+          </div>
+        </div>
+      </nav>
     </main>
   );
 }
