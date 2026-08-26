@@ -5,8 +5,8 @@ import { useState } from "react";
 const tabs = [
   { label: "Главная", icon: "⌂" },
   { label: "Расходы", icon: "↘" },
-  { label: "Цели", icon: "◎" },
-  { label: "Профиль", icon: "♙" },
+  { label: "Цели", icon: "✓" },
+  { label: "Профиль", icon: "●" },
 ];
 
 export default function Dashboard() {
@@ -36,7 +36,7 @@ export default function Dashboard() {
           <div className="flex w-full items-center justify-between pl-10">
             {tabs.slice(2).map((tab) => (
               <button key={tab.label} type="button" onClick={() => setActiveTab(tab.label)} className={`flex min-w-[64px] flex-col items-center gap-1.5 rounded-2xl px-2 py-2 transition-all duration-200 active:scale-90 ${activeTab === tab.label ? "text-[#67D1DE]" : "text-slate-400 hover:text-[#67D1DE]"}`}>
-                <span className="text-[23px] leading-none">{tab.icon}</span>
+                <span className="text-[23px] leading-none">{tab.label === "Цели" ? "✓" : "♙"}</span>
                 <span className="text-[10px] font-semibold">{tab.label}</span>
               </button>
             ))}
