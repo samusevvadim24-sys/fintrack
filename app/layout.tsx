@@ -15,11 +15,6 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "FinTrack — Личные финансы",
   description: "Простой и быстрый контроль доходов и расходов.",
-  icons: {
-    icon: "/logo.svg",
-    shortcut: "/logo.svg",
-    apple: "/logo.svg",
-  },
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
