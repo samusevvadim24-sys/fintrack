@@ -48,7 +48,9 @@ export default function Dashboard() {
   };
 
   const menuItems = menuOpen === "operations" ? operationItems : profileItems;
-  const menuPosition = menuOpen === "operations" ? "left-[25%]" : "right-[25%]";
+  const menuPosition = menuOpen === "operations"
+    ? "left-[calc(25%-95px)]"
+    : "right-[calc(25%-95px)]";
 
   return (
     <main className="min-h-dvh bg-[#f7f9fa] text-slate-950">
