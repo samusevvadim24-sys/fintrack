@@ -7,21 +7,19 @@ const keys = ["1", "2", "3", "4", "5", "6", "7", "8", "9"];
 
 export default function Home() {
   const [pin, setPin] = useState("");
-
-  function addDigit(digit: string) {
-    if (pin.length < 6) setPin((current) => current + digit);
-  }
-
-  function removeDigit() {
-    setPin((current) => current.slice(0, -1));
-  }
+  const addDigit = (digit: string) => pin.length < 6 && setPin((current) => current + digit);
+  const removeDigit = () => setPin((current) => current.slice(0, -1));
 
   return (
     <main className="min-h-dvh overflow-hidden bg-[radial-gradient(circle_at_15%_5%,rgba(103,209,222,0.22),transparent_30%),radial-gradient(circle_at_90%_12%,rgba(250,125,104,0.20),transparent_32%),#f7f9fa] text-slate-950">
       <div className="mx-auto flex min-h-dvh w-full max-w-md flex-col px-5 pb-7 pt-8 sm:px-8">
-        <header className="flex items-center justify-center">
-          <div className="h-16 w-16 overflow-hidden rounded-[18px] shadow-[0_10px_30px_rgba(15,23,42,0.10)] ring-1 ring-white/80">
+        <header className="flex items-center gap-3">
+          <div className="h-16 w-16 shrink-0 overflow-hidden rounded-[18px] shadow-[0_10px_30px_rgba(15,23,42,0.10)] ring-1 ring-white/80">
             <Image src="/logo.svg" alt="FinTrack" width={1024} height={1024} className="h-full w-full scale-[2.1] object-cover" priority />
+          </div>
+          <div>
+            <div className="text-[25px] font-bold leading-none tracking-[-0.045em] text-slate-900">Fin<span className="text-[#FA7D68]">T</span>rack</div>
+            <div className="mt-1.5 text-[10px] font-semibold uppercase tracking-[0.2em] text-slate-400">Your money, clearly</div>
           </div>
         </header>
 
@@ -33,17 +31,11 @@ export default function Home() {
           </div>
 
           <div className="my-8 flex h-5 items-center justify-center gap-3" aria-label="Введено символов">
-            {Array.from({ length: 6 }).map((_, index) => (
-              <span key={index} className={`h-3 w-3 rounded-full border transition-all duration-200 ${index < pin.length ? "scale-110 border-[#FA7D68] bg-[#FA7D68] shadow-[0_0_0_4px_rgba(250,125,104,0.12)]" : "border-slate-300 bg-white/50"}`} />
-            ))}
+            {Array.from({ length: 6 }).map((_, index) => <span key={index} className={`h-3 w-3 rounded-full border transition-all duration-200 ${index < pin.length ? "scale-110 border-[#FA7D68] bg-[#FA7D68] shadow-[0_0_0_4px_rgba(250,125,104,0.12)]" : "border-slate-300 bg-white/50"}`} />)}
           </div>
 
           <div className="grid w-full max-w-[300px] grid-cols-3 gap-x-5 gap-y-4">
-            {keys.map((key) => (
-              <button key={key} type="button" onClick={() => addDigit(key)} className="flex h-[68px] items-center justify-center rounded-full border border-white/70 bg-white/35 text-[25px] font-medium text-slate-900 shadow-none backdrop-blur-sm transition hover:bg-white/60 active:scale-95 active:bg-[#67D1DE]/15" aria-label={`Цифра ${key}`}>
-                {key}
-              </button>
-            ))}
+            {keys.map((key) => <button key={key} type="button" onClick={() => addDigit(key)} className="flex h-[68px] items-center justify-center rounded-full border border-white/70 bg-white/35 text-[25px] font-medium text-slate-900 shadow-none backdrop-blur-sm transition hover:bg-white/60 active:scale-95 active:bg-[#67D1DE]/15" aria-label={`Цифра ${key}`}>{key}</button>)}
             <div />
             <button type="button" onClick={() => addDigit("0")} className="flex h-[68px] items-center justify-center rounded-full border border-white/70 bg-white/35 text-[25px] font-medium text-slate-900 shadow-none backdrop-blur-sm transition hover:bg-white/60 active:scale-95 active:bg-[#67D1DE]/15" aria-label="Цифра 0">0</button>
             <button type="button" onClick={removeDigit} disabled={!pin.length} className="flex h-[68px] items-center justify-center rounded-full text-sm font-semibold text-slate-500 transition active:scale-95 disabled:opacity-25" aria-label="Удалить последнюю цифру">⌫</button>
