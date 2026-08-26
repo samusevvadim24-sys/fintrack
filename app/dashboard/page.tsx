@@ -21,10 +21,10 @@ export default function Dashboard() {
       </div>
 
       <nav className="fixed inset-x-0 bottom-0 z-20 mx-auto w-full max-w-md px-4 pb-4">
-        <div className="relative flex h-[76px] items-center justify-between rounded-[28px] border border-white/80 bg-[#67D1DE] px-5 shadow-[0_12px_40px_rgba(15,23,42,0.12)] backdrop-blur-xl">
+        <div className="relative flex h-[76px] items-center justify-between rounded-[28px] border border-slate-100 bg-white px-5 shadow-[0_12px_40px_rgba(15,23,42,0.10)] backdrop-blur-xl">
           <div className="flex w-full items-center justify-between pr-10">
             {tabs.slice(0, 2).map((tab) => (
-              <button key={tab.label} type="button" onClick={() => setActiveTab(tab.label)} className={`flex min-w-[64px] flex-col items-center gap-1.5 rounded-2xl px-2 py-2 transition-all duration-200 active:scale-90 ${activeTab === tab.label ? "text-white" : "text-white/65 hover:text-white/90"}`}>
+              <button key={tab.label} type="button" onClick={() => setActiveTab(tab.label)} className={`flex min-w-[64px] flex-col items-center gap-1.5 rounded-2xl px-2 py-2 transition-all duration-200 active:scale-90 ${activeTab === tab.label ? "text-[#67D1DE]" : "text-slate-400 hover:text-[#67D1DE]"}`}>
                 <span className="text-[23px] leading-none">{tab.icon}</span>
                 <span className="text-[10px] font-semibold">{tab.label}</span>
               </button>
@@ -35,7 +35,7 @@ export default function Dashboard() {
 
           <div className="flex w-full items-center justify-between pl-10">
             {tabs.slice(2).map((tab) => (
-              <button key={tab.label} type="button" onClick={() => setActiveTab(tab.label)} className={`flex min-w-[64px] flex-col items-center gap-1.5 rounded-2xl px-2 py-2 transition-all duration-200 active:scale-90 ${activeTab === tab.label ? "text-white" : "text-white/65 hover:text-white/90"}`}>
+              <button key={tab.label} type="button" onClick={() => setActiveTab(tab.label)} className={`flex min-w-[64px] flex-col items-center gap-1.5 rounded-2xl px-2 py-2 transition-all duration-200 active:scale-90 ${activeTab === tab.label ? "text-[#67D1DE]" : "text-slate-400 hover:text-[#67D1DE]"}`}>
                 <span className="text-[23px] leading-none">{tab.icon}</span>
                 <span className="text-[10px] font-semibold">{tab.label}</span>
               </button>
