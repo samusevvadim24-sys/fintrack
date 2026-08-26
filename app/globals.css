@@ -34,11 +34,17 @@ a {
 }
 
 .mobile-nav,
-.mobile-nav button {
+.mobile-nav button,
+.mobile-nav button span {
   -webkit-user-select: none;
   user-select: none;
   -webkit-touch-callout: none;
+  -webkit-user-drag: none;
   touch-action: manipulation;
+}
+
+.mobile-nav button span {
+  pointer-events: none;
 }
 
 .app-shell {
