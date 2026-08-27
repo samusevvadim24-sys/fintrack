@@ -68,9 +68,73 @@ a {
   padding-top: env(safe-area-inset-top);
 }
 
+.login-shell {
+  min-height: 100dvh;
+}
+
+.login-container {
+  min-height: 100dvh;
+}
+
 @supports (height: 100svh) {
-  .app-shell {
+  .app-shell,
+  .login-shell,
+  .login-container {
     min-height: 100svh;
+  }
+}
+
+/* Keep the complete login action visible on compact-height phones. */
+@media (max-height: 760px) {
+  .login-container {
+    padding-top: calc(1rem + env(safe-area-inset-top));
+  }
+
+  .login-content {
+    justify-content: flex-start;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+
+  .login-content h1 {
+    font-size: 26px;
+  }
+
+  .login-content .login-key {
+    height: 56px;
+  }
+
+  .login-content > div:nth-child(2) {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .login-biometric {
+    margin-bottom: 0;
+  }
+}
+
+@media (max-height: 680px) {
+  .login-container {
+    overflow-y: auto;
+  }
+
+  .login-content {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+  }
+
+  .login-content .login-key {
+    height: 52px;
+  }
+
+  .login-content > div:nth-child(2) {
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .login-content > button {
+    margin-top: 0.5rem;
   }
 }
 
