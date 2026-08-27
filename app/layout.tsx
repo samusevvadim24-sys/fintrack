@@ -15,6 +15,7 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "FinTrack — Личные финансы",
   description: "Простой и быстрый контроль доходов и расходов.",
+  manifest: "/manifest.webmanifest",
   icons: {
     icon: "/logo.svg",
     shortcut: "/logo.svg",
