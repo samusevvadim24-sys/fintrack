@@ -1,9 +1,6 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { useRouter } from "next/navigation";
-
-const AUTH_KEY = "fintrack_authenticated";
 
 const tabs = [
   { label: "Главная", icon: "⌂" },
@@ -23,20 +20,10 @@ const profileItems = [
 ];
 
 export default function Dashboard() {
-  const router = useRouter();
-  const [authenticated, setAuthenticated] = useState(false);
   const [activeTab, setActiveTab] = useState("Главная");
   const [menuOpen, setMenuOpen] = useState<"operations" | "profile" | null>(null);
   const pressTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const longPressTriggered = useRef(false);
-
-  useEffect(() => {
-    if (window.localStorage.getItem(AUTH_KEY) !== "1") {
-      router.replace("/");
-      return;
-    }
-    setAuthenticated(true);
-  }, [router]);
 
   const startLongPress = (menu: "operations" | "profile") => {
     longPressTriggered.current = false;
@@ -64,8 +51,6 @@ export default function Dashboard() {
   const menuPosition = menuOpen === "operations"
     ? "left-[calc(25%-95px)]"
     : "right-[calc(25%-95px)]";
-
-  if (!authenticated) return null;
 
   return (
     <main className="app-shell min-h-dvh bg-[#f7f9fa] text-slate-950">
