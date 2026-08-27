@@ -1,0 +1,19 @@
+{
+  "name": "FinTrack — Личные финансы",
+  "short_name": "FinTrack",
+  "description": "Простой и быстрый контроль доходов и расходов.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#f7f9fa",
+  "theme_color": "#f7f9fa",
+  "lang": "ru",
+  "icons": [
+    {
+      "src": "/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
