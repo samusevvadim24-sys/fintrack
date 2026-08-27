@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from "next";
+import type { ReactNode } from "react";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -19,7 +20,11 @@ export const viewport: Viewport = {
   themeColor: "#f7f9fa",
 };
 
-export default function RootLayout({ children }: LayoutProps<"/">) {
+export default function RootLayout({
+  children,
+}: {
+  children: ReactNode;
+}) {
   return (
     <html lang="ru" className="h-full antialiased">
       <body className="min-h-full">{children}</body>
