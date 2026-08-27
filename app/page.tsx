@@ -5,16 +5,23 @@ import { useRouter } from "next/navigation";
 import { useState } from "react";
 
 const keys = ["1", "2", "3", "4", "5", "6", "7", "8", "9"];
+const AUTH_KEY = "fintrack_authenticated";
 
 export default function Home() {
   const [pin, setPin] = useState("");
   const router = useRouter();
 
+  const login = () => {
+    if (pin.length !== 6) return;
+    window.localStorage.setItem(AUTH_KEY, "1");
+    router.replace("/dashboard");
+  };
+
   const addDigit = (digit: string) => {
     setPin((current) => {
       if (current.length >= 6) return current;
       const next = current + digit;
-      if (next.length === 6) window.setTimeout(() => router.push("/dashboard"), 180);
+      if (next.length === 6) window.setTimeout(login, 180);
       return next;
     });
   };
@@ -28,7 +35,7 @@ export default function Home() {
           <div className="h-16 w-16 shrink-0 overflow-hidden rounded-[18px] shadow-[0_10px_30px_rgba(15,23,42,0.10)] ring-1 ring-white/80">
             <Image src="/logo.svg" alt="FinTrack" width={1024} height={1024} className="h-full w-full scale-[2.1] object-cover" priority />
           </div>
-          <div className="text-[26px] font-semibold leading-none tracking-[-0.045em]" style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 600 }}>
+          <div className="text-[26px] font-semibold leading-none tracking-[-0.045em]">
             <span className="text-[#FA7D68]">F</span><span className="text-slate-900">in</span><span className="text-[#67D1DE]">T</span><span className="text-slate-900">rack</span>
           </div>
         </header>
@@ -51,7 +58,7 @@ export default function Home() {
             <button type="button" onClick={removeDigit} disabled={!pin.length} className="flex h-[68px] items-center justify-center rounded-full text-sm font-semibold text-slate-500 transition-[transform,background-color,box-shadow,opacity] duration-200 ease-out hover:bg-white/50 active:scale-[0.88] active:bg-[#67D1DE]/15 active:shadow-[0_5px_16px_rgba(103,209,222,0.18)] disabled:opacity-25" aria-label="Удалить последнюю цифру">⌫</button>
           </div>
 
-          <button type="button" disabled={pin.length !== 6} onClick={() => router.push("/dashboard")} className="mt-7 h-13 w-full max-w-[300px] rounded-full bg-[#FA7D68] px-6 py-3 text-sm font-semibold text-white shadow-[0_10px_25px_rgba(250,125,104,0.28)] transition hover:brightness-105 active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-25 disabled:shadow-none">Войти</button>
+          <button type="button" disabled={pin.length !== 6} onClick={login} className="mt-7 h-13 w-full max-w-[300px] rounded-full bg-[#FA7D68] px-6 py-3 text-sm font-semibold text-white shadow-[0_10px_25px_rgba(250,125,104,0.28)] transition hover:brightness-105 active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-25 disabled:shadow-none">Войти</button>
         </section>
 
         <button type="button" className="mx-auto mt-3 flex items-center gap-2 rounded-full px-4 py-3 text-sm font-semibold text-slate-500 transition hover:text-slate-800 active:bg-white/70">
