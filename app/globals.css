@@ -13,7 +13,7 @@ button { font:inherit; -webkit-tap-highlight-color:transparent; }
 .copy { width:100%; flex:0 0 auto; text-align:center; padding:clamp(8px,1.5dvh,16px) 0 clamp(10px,2dvh,20px); }
 .copy h1 { margin:0 0 14px; color:var(--foreground); font-size:clamp(27px,8vw,36px); line-height:1.12; font-weight:700; letter-spacing:-.045em; }
 .copy p { margin:0; color:var(--muted); font-size:clamp(14px,4.2vw,17px); line-height:1.4; font-weight:400; letter-spacing:-.01em; }
-.actions { width:100%; margin-top:auto; display:flex; flex-direction:column; gap:clamp(4px,1dvh,8px); flex:0 0 auto; }
+.actions { width:100%; margin-top:clamp(4px,1.5dvh,12px); display:flex; flex-direction:column; gap:clamp(4px,1dvh,8px); flex:0 0 auto; }
 .primary-button,.secondary-button { width:100%; border:0; border-radius:999px; cursor:pointer; -webkit-user-select:none; user-select:none; touch-action:manipulation; transition:transform .15s ease,opacity .15s ease,background .15s ease; }
 .primary-button { min-height:clamp(46px,7dvh,56px); padding:0 20px; color:#fff; background:var(--primary); font-size:clamp(16px,4.2vw,17px); font-weight:600; }
 .secondary-button { min-height:clamp(38px,6dvh,48px); padding:0 20px; color:var(--primary); background:transparent; font-size:clamp(15px,4.2vw,17px); font-weight:600; }
