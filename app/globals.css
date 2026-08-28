@@ -1,15 +1,15 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
 
-:root { --background:#fff; --foreground:#0a1945; --muted:#6b7280; --primary:#1a73e8; --field:#f6f8fb; --border:#e3e8ef; }
+:root { --background:#fff; --foreground:#0a1945; --muted:#6b7280; --primary:#1a73e8; --field:#f6f8fb; --border:#e3e8ef; --app-height:100dvh; --app-top:0px; }
 * { box-sizing:border-box; }
-html,body { width:100%; min-width:320px; min-height:100%; margin:0; }
+html,body { width:100%; min-width:320px; height:100%; margin:0; }
 html { background:var(--background); }
-body { min-height:100dvh; font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; background:var(--background); color:var(--foreground); -webkit-font-smoothing:antialiased; overflow:hidden; }
+body { min-height:100%; font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; background:var(--background); color:var(--foreground); -webkit-font-smoothing:antialiased; overflow:hidden; overscroll-behavior:none; }
 button,input { font:inherit; }
 button,a { -webkit-tap-highlight-color:transparent; }
 button { cursor:pointer; }
-.welcome-screen,.family-page { width:100%; min-height:100dvh; overflow:hidden; background:var(--background); }
-.welcome-content { width:100%; min-height:100dvh; display:flex; flex-direction:column; padding:max(12px,env(safe-area-inset-top)) max(24px,env(safe-area-inset-right)) max(12px,env(safe-area-inset-bottom)) max(24px,env(safe-area-inset-left)); }
+.welcome-screen,.family-page { width:100%; height:var(--app-height); overflow:hidden; background:var(--background); }
+.welcome-content { width:100%; height:var(--app-height); display:flex; flex-direction:column; padding:max(12px,env(safe-area-inset-top)) max(24px,env(safe-area-inset-right)) max(12px,env(safe-area-inset-bottom)) max(24px,env(safe-area-inset-left)); }
 .illustration-wrap { width:100%; height:clamp(220px,38vw,245px); flex:0 0 auto; display:flex; justify-content:center; align-items:flex-start; overflow:visible; }
 .illustration-wrap img { display:block; width:100%; max-width:390px; height:auto; flex:0 0 auto; object-fit:contain; object-position:center top; }
 .copy { width:100%; flex:1 1 auto; min-height:0; display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; padding:clamp(8px,1.5dvh,16px) 0; }
@@ -24,13 +24,13 @@ button { cursor:pointer; }
 .primary-button:focus-visible,.secondary-button:focus-visible { outline:3px solid rgb(26 115 232 / 30%); outline-offset:3px; }
 @media (hover:hover) { .primary-button:hover { background:#1769d1; } .secondary-button:hover { background:rgb(26 115 232 / 6%); } }
 
-.family-page { display:block; padding:0; overflow:hidden; }
-.family-card { width:100%; max-width:400px; height:var(--app-height,100dvh); margin:0 auto; padding:max(18px,env(safe-area-inset-top)) 24px max(32px,env(safe-area-inset-bottom)); display:flex; flex-direction:column; animation:screen-enter 180ms ease-out both; }
+.family-page { position:fixed; inset:0 auto auto 0; height:var(--app-height); transform:translate3d(0,var(--app-top),0); }
+.family-card { width:100%; max-width:400px; height:var(--app-height); margin:0 auto; padding:max(18px,env(safe-area-inset-top)) 24px max(32px,env(safe-area-inset-bottom)); display:flex; flex-direction:column; overflow:hidden; animation:screen-enter 180ms ease-out both; }
 .family-header { flex:0 0 auto; }
 .family-header h1 { margin:0; color:var(--foreground); font-size:clamp(28px,7.5vw,36px); line-height:1.08; font-weight:700; letter-spacing:-.045em; }
 .family-header p { max-width:360px; margin:10px 0 0; color:var(--muted); font-size:clamp(14px,3.9vw,16px); line-height:1.35; }
-.family-illustration { width:100%; margin:clamp(8px,1.5dvh,14px) 0 clamp(8px,1.5dvh,14px); display:flex; justify-content:center; flex:1 1 auto; min-height:0; align-items:center; }
-.family-illustration img { display:block; width:100%; max-width:285px; max-height:100%; height:auto; object-fit:contain; }
+.family-illustration { width:100%; margin:clamp(8px,1.5dvh,14px) 0 clamp(8px,1.5dvh,14px); display:flex; justify-content:center; flex:1 1 auto; min-height:0; align-items:center; overflow:hidden; }
+.family-illustration img { display:block; width:calc(100% + 5px); max-width:none; max-height:100%; height:auto; flex:0 0 auto; object-fit:contain; transform:translateX(-2.5px); }
 .family-form { display:flex; flex-direction:column; gap:clamp(7px,1.1dvh,10px); flex:0 0 auto; }
 .family-form label { display:flex; flex-direction:column; gap:4px; }
 .family-form label span { color:var(--foreground); font-size:13px; font-weight:600; }
@@ -45,6 +45,6 @@ button { cursor:pointer; }
 .family-join:hover { background:#f8fafc; }
 .family-login { margin:clamp(8px,1.3dvh,12px) 0 0; padding-bottom:8px; text-align:center; color:var(--muted); font-size:13px; line-height:1.3; flex:0 0 auto; }
 .family-login button { padding:0; border:0; background:none; color:var(--primary); font-weight:600; }
-@media (max-height:700px) { .family-card { padding-top:max(12px,env(safe-area-inset-top)); padding-bottom:max(20px,env(safe-area-inset-bottom)); } .family-header p { margin-top:7px; } .family-illustration { margin-top:4px; margin-bottom:6px; } .family-illustration img { max-width:235px; } .family-form { gap:6px; } .family-form label { gap:3px; } .family-form input { min-height:40px; } .family-form .primary-button { min-height:42px; } .family-divider { margin-top:6px; margin-bottom:4px; } .family-join { min-height:40px; } .family-login { margin-top:6px; padding-bottom:4px; } }
+@media (max-height:700px) { .family-card { padding-top:max(12px,env(safe-area-inset-top)); padding-bottom:max(20px,env(safe-area-inset-bottom)); } .family-header p { margin-top:7px; } .family-illustration { margin-top:4px; margin-bottom:6px; } .family-illustration img { max-width:none; width:calc(100% + 5px); } .family-form { gap:6px; } .family-form label { gap:3px; } .family-form input { min-height:40px; } .family-form .primary-button { min-height:42px; } .family-divider { margin-top:6px; margin-bottom:4px; } .family-join { min-height:40px; } .family-login { margin-top:6px; padding-bottom:4px; } }
 @keyframes screen-enter { from { opacity:0; transform:translateX(18px); } to { opacity:1; transform:translateX(0); } }
 @media (prefers-reduced-motion:reduce) { .primary-button,.secondary-button,.family-card { transition:none; animation:none; } }
