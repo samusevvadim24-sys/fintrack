@@ -25,7 +25,7 @@ button { cursor:pointer; }
 @media (hover:hover) { .primary-button:hover { background:#1769d1; } .secondary-button:hover { background:rgb(26 115 232 / 6%); } }
 
 .family-page { display:block; padding:0; overflow:hidden; }
-.family-card { width:100%; max-width:400px; height:100dvh; margin:0 auto; padding:max(18px,env(safe-area-inset-top)) 24px max(14px,env(safe-area-inset-bottom)); display:flex; flex-direction:column; animation:screen-enter 180ms ease-out both; }
+.family-card { width:100%; max-width:400px; height:100dvh; margin:0 auto; padding:max(18px,env(safe-area-inset-top)) 24px max(26px,env(safe-area-inset-bottom)); display:flex; flex-direction:column; animation:screen-enter 180ms ease-out both; }
 .family-header { flex:0 0 auto; }
 .family-header h1 { margin:0; color:var(--foreground); font-size:clamp(28px,7.5vw,36px); line-height:1.08; font-weight:700; letter-spacing:-.045em; }
 .family-header p { max-width:360px; margin:10px 0 0; color:var(--muted); font-size:clamp(14px,3.9vw,16px); line-height:1.35; }
@@ -43,7 +43,7 @@ button { cursor:pointer; }
 .family-divider strong { font-weight:500; }
 .family-join { min-height:clamp(42px,6dvh,48px); border:1px solid var(--border); background:#fff; flex:0 0 auto; }
 .family-join:hover { background:#f8fafc; }
-.family-login { margin:clamp(8px,1.3dvh,12px) 0 0; text-align:center; color:var(--muted); font-size:13px; line-height:1.3; flex:0 0 auto; }
+.family-login { margin:clamp(8px,1.3dvh,12px) 0 0; padding-bottom:8px; text-align:center; color:var(--muted); font-size:13px; line-height:1.3; flex:0 0 auto; }
 .family-login button { padding:0; border:0; background:none; color:var(--primary); font-weight:600; }
 @keyframes screen-enter { from { opacity:0; transform:translateX(18px); } to { opacity:1; transform:translateX(0); } }
 @media (prefers-reduced-motion:reduce) { .primary-button,.secondary-button,.family-card { transition:none; animation:none; } }
