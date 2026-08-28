@@ -11,7 +11,7 @@ export default function WelcomePage() {
             width={813}
             height={613}
             priority
-            sizes="(max-width: 599px) 90vw, 813px"
+            sizes="(max-width: 599px) calc(100vw - 48px), 390px"
           />
         </div>
 
