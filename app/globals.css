@@ -1,24 +1,160 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
 
-:root { --background:#fff; --foreground:#0a1945; --muted:#6b7280; --primary:#1a73e8; }
-* { box-sizing:border-box; }
-html, body { width:100%; min-width:320px; min-height:100%; margin:0; }
-html { background:var(--background); }
-body { min-height:100dvh; font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; background:var(--background); color:var(--foreground); -webkit-font-smoothing:antialiased; overflow-x:hidden; }
-button { font:inherit; -webkit-tap-highlight-color:transparent; }
-.welcome-screen { width:100%; min-height:100dvh; overflow:hidden; background:var(--background); }
-.welcome-content { width:100%; min-height:100dvh; display:flex; flex-direction:column; padding:max(12px,env(safe-area-inset-top)) max(24px,env(safe-area-inset-right)) max(12px,env(safe-area-inset-bottom)) max(24px,env(safe-area-inset-left)); }
-.illustration-wrap { width:100%; height:clamp(220px,38vw,245px); flex:0 0 auto; display:flex; justify-content:center; align-items:flex-start; overflow:visible; padding:0; }
-.illustration-wrap img { display:block; width:100%; max-width:390px; height:auto; flex:0 0 auto; object-fit:contain; object-position:center top; }
-.copy { width:100%; flex:1 1 auto; min-height:0; display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; padding:clamp(8px,1.5dvh,16px) 0; }
-.copy h1 { margin:0 0 14px; color:var(--foreground); font-size:clamp(27px,8vw,36px); line-height:1.12; font-weight:700; letter-spacing:-.045em; }
-.copy p { margin:0; color:var(--muted); font-size:clamp(14px,4.2vw,17px); line-height:1.4; font-weight:400; letter-spacing:-.01em; }
-.actions { width:100%; margin-top:clamp(4px,1.5dvh,12px); display:flex; flex-direction:column; gap:clamp(4px,1dvh,8px); flex:0 0 auto; }
-.primary-button,.secondary-button { width:100%; border:0; border-radius:999px; cursor:pointer; -webkit-user-select:none; user-select:none; touch-action:manipulation; transition:transform .15s ease,opacity .15s ease,background .15s ease; }
-.primary-button { min-height:clamp(46px,7dvh,56px); padding:0 20px; color:#fff; background:var(--primary); font-size:clamp(16px,4.2vw,17px); font-weight:600; }
-.secondary-button { min-height:clamp(38px,6dvh,48px); padding:0 20px; color:var(--primary); background:transparent; font-size:clamp(15px,4.2vw,17px); font-weight:600; }
-@media (hover:hover) { .primary-button:hover { background:#1769d1; } .secondary-button:hover { background:rgba(26,115,232,.06); } }
-.primary-button:active { transform:scale(.98); }
-.secondary-button:active { opacity:.65; }
-.primary-button:focus-visible,.secondary-button:focus-visible { outline:3px solid rgba(26,115,232,.3); outline-offset:3px; }
-@media (prefers-reduced-motion:reduce) { .primary-button,.secondary-button { transition:none; } }
+:root {
+  --background: #fff;
+  --foreground: #0a1945;
+  --muted: #6b7280;
+  --primary: #1a73e8;
+}
+
+* { box-sizing: border-box; }
+
+html,
+body {
+  width: 100%;
+  min-width: 320px;
+  min-height: 100%;
+  margin: 0;
+}
+
+html { background: var(--background); }
+
+body {
+  min-height: 100dvh;
+  font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: var(--background);
+  color: var(--foreground);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+button {
+  font: inherit;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.welcome-screen {
+  width: 100%;
+  min-height: 100dvh;
+  overflow: hidden;
+  background: var(--background);
+}
+
+.welcome-content {
+  width: 100%;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  padding: max(12px, env(safe-area-inset-top))
+    max(24px, env(safe-area-inset-right))
+    max(12px, env(safe-area-inset-bottom))
+    max(24px, env(safe-area-inset-left));
+}
+
+.illustration-wrap {
+  width: 100%;
+  height: clamp(220px, 38vw, 245px);
+  flex: 0 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  overflow: visible;
+}
+
+.illustration-wrap img {
+  display: block;
+  width: 100%;
+  max-width: 390px;
+  height: auto;
+  flex: 0 0 auto;
+  object-fit: contain;
+  object-position: center top;
+}
+
+.copy {
+  width: 100%;
+  flex: 1 1 auto;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: clamp(8px, 1.5dvh, 16px) 0;
+}
+
+.copy h1 {
+  margin: 0 0 14px;
+  color: var(--foreground);
+  font-size: clamp(27px, 8vw, 36px);
+  line-height: 1.12;
+  font-weight: 700;
+  letter-spacing: -0.045em;
+}
+
+.copy p {
+  margin: 0;
+  color: var(--muted);
+  font-size: clamp(14px, 4.2vw, 17px);
+  line-height: 1.4;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+}
+
+.actions {
+  width: 100%;
+  margin-top: clamp(4px, 1.5dvh, 12px);
+  display: flex;
+  flex-direction: column;
+  gap: clamp(4px, 1dvh, 8px);
+  flex: 0 0 auto;
+}
+
+.primary-button,
+.secondary-button {
+  width: 100%;
+  border: 0;
+  border-radius: 999px;
+  cursor: pointer;
+  -webkit-user-select: none;
+  user-select: none;
+  touch-action: manipulation;
+  transition: transform 0.15s ease, opacity 0.15s ease, background 0.15s ease;
+}
+
+.primary-button {
+  min-height: clamp(46px, 7dvh, 56px);
+  padding: 0 20px;
+  color: #fff;
+  background: var(--primary);
+  font-size: clamp(16px, 4.2vw, 17px);
+  font-weight: 600;
+}
+
+.secondary-button {
+  min-height: clamp(38px, 6dvh, 48px);
+  padding: 0 20px;
+  color: var(--primary);
+  background: transparent;
+  font-size: clamp(15px, 4.2vw, 17px);
+  font-weight: 600;
+}
+
+@media (hover: hover) {
+  .primary-button:hover { background: #1769d1; }
+  .secondary-button:hover { background: rgb(26 115 232 / 6%); }
+}
+
+.primary-button:active { transform: scale(0.98); }
+.secondary-button:active { opacity: 0.65; }
+
+.primary-button:focus-visible,
+.secondary-button:focus-visible {
+  outline: 3px solid rgb(26 115 232 / 30%);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .primary-button,
+  .secondary-button { transition: none; }
+}
