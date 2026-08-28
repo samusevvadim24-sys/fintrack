@@ -11,7 +11,8 @@ export default function WelcomePage() {
             width={400}
             height={320}
             priority
-            sizes="(max-width: 599px) 100vw, 400px"
+            quality={70}
+            sizes="(max-width: 599px) 360px, 400px"
           />
         </div>
 
@@ -21,7 +22,6 @@ export default function WelcomePage() {
             <br />
             пожаловать
           </h1>
-
           <p>
             Упростите совместное ведение
             <br />
@@ -33,7 +33,6 @@ export default function WelcomePage() {
           <button className="primary-button" type="button">
             Начать
           </button>
-
           <button className="secondary-button" type="button">
             Войти
           </button>
