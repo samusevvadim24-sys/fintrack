@@ -5,20 +5,36 @@ import { useEffect } from "react";
 
 export default function NewFamilyPage() {
   useEffect(() => {
-    const updateViewportHeight = () => {
-      const height = window.visualViewport?.height ?? window.innerHeight;
+    const viewport = window.visualViewport;
+    let keyboardOpen = false;
+
+    const syncViewport = () => {
+      const height = viewport?.height ?? window.innerHeight;
+      const top = viewport?.offsetTop ?? 0;
+      const keyboardVisible = height < window.innerHeight - 120;
+      keyboardOpen = keyboardVisible;
+
       document.documentElement.style.setProperty("--app-height", `${height}px`);
+      document.documentElement.style.setProperty("--app-top", `${top}px`);
+      document.documentElement.classList.toggle("keyboard-open", keyboardVisible);
     };
 
-    updateViewportHeight();
-    window.visualViewport?.addEventListener("resize", updateViewportHeight);
-    window.visualViewport?.addEventListener("scroll", updateViewportHeight);
-    window.addEventListener("resize", updateViewportHeight);
+    const preventDocumentScroll = () => {
+      if (keyboardOpen) window.scrollTo(0, 0);
+    };
+
+    syncViewport();
+    viewport?.addEventListener("resize", syncViewport);
+    viewport?.addEventListener("scroll", syncViewport);
+    window.addEventListener("resize", syncViewport);
+    window.addEventListener("scroll", preventDocumentScroll, { passive: true });
 
     return () => {
-      window.visualViewport?.removeEventListener("resize", updateViewportHeight);
-      window.visualViewport?.removeEventListener("scroll", updateViewportHeight);
-      window.removeEventListener("resize", updateViewportHeight);
+      viewport?.removeEventListener("resize", syncViewport);
+      viewport?.removeEventListener("scroll", syncViewport);
+      window.removeEventListener("resize", syncViewport);
+      window.removeEventListener("scroll", preventDocumentScroll);
+      document.documentElement.classList.remove("keyboard-open");
     };
   }, []);
 
