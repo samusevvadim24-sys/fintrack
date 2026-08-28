@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import type { ReactNode } from "react";
 import "./globals.css";
+import ViewportController from "./components/ViewportController";
 
 export const metadata: Metadata = {
   title: "FinTrack",
@@ -17,7 +18,10 @@ export const viewport: Viewport = {
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="ru">
-      <body>{children}</body>
+      <body>
+        <ViewportController />
+        {children}
+      </body>
     </html>
   );
 }
