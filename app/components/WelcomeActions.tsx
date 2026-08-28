@@ -1,24 +1,11 @@
-"use client";
-
-import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 export function WelcomeActions() {
-  const router = useRouter();
-
-  const goToNewFamily = () => {
-    router.push("/family/new");
-  };
-
   return (
     <div className="actions">
-      <button
-        className="primary-button"
-        type="button"
-        onClick={goToNewFamily}
-        onTouchEnd={goToNewFamily}
-      >
+      <Link className="primary-button" href="/family/new">
         Начать
-      </button>
+      </Link>
       <button className="secondary-button" type="button">
         Войти
       </button>
