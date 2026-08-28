@@ -25,7 +25,7 @@ button { cursor:pointer; }
 @media (hover:hover) { .primary-button:hover { background:#1769d1; } .secondary-button:hover { background:rgb(26 115 232 / 6%); } }
 
 .family-page { display:block; padding:0; overflow:hidden; }
-.family-card { width:100%; max-width:400px; height:100dvh; margin:0 auto; padding:max(18px,env(safe-area-inset-top)) 24px max(26px,env(safe-area-inset-bottom)); display:flex; flex-direction:column; animation:screen-enter 180ms ease-out both; }
+.family-card { width:100%; max-width:400px; height:100dvh; margin:0 auto; padding:max(18px,env(safe-area-inset-top)) 24px max(32px,env(safe-area-inset-bottom)); display:flex; flex-direction:column; animation:screen-enter 180ms ease-out both; }
 .family-header { flex:0 0 auto; }
 .family-header h1 { margin:0; color:var(--foreground); font-size:clamp(28px,7.5vw,36px); line-height:1.08; font-weight:700; letter-spacing:-.045em; }
 .family-header p { max-width:360px; margin:10px 0 0; color:var(--muted); font-size:clamp(14px,3.9vw,16px); line-height:1.35; }
@@ -38,12 +38,13 @@ button { cursor:pointer; }
 .family-form input::placeholder { color:#9aa3b1; }
 .family-form input:focus { border-color:var(--primary); background:#fff; box-shadow:0 0 0 3px rgb(26 115 232 / 10%); }
 .family-form .primary-button { min-height:clamp(44px,6.2dvh,50px); margin-top:1px; }
-.family-divider { display:flex; align-items:center; gap:10px; margin:clamp(8px,1.3dvh,12px) 0 clamp(5px,0.8dvh,8px); color:#9aa3b1; font-size:13px; flex:0 0 auto; }
+.family-divider { display:flex; align-items:center; gap:10px; margin:clamp(8px,1.3dvh,12px) 0 clamp(5px,.8dvh,8px); color:#9aa3b1; font-size:13px; flex:0 0 auto; }
 .family-divider span { height:1px; flex:1; background:var(--border); }
 .family-divider strong { font-weight:500; }
 .family-join { min-height:clamp(42px,6dvh,48px); border:1px solid var(--border); background:#fff; flex:0 0 auto; }
 .family-join:hover { background:#f8fafc; }
 .family-login { margin:clamp(8px,1.3dvh,12px) 0 0; padding-bottom:8px; text-align:center; color:var(--muted); font-size:13px; line-height:1.3; flex:0 0 auto; }
 .family-login button { padding:0; border:0; background:none; color:var(--primary); font-weight:600; }
+@media (max-height:700px) { .family-card { padding-top:max(12px,env(safe-area-inset-top)); padding-bottom:max(20px,env(safe-area-inset-bottom)); } .family-header p { margin-top:7px; } .family-illustration { margin-top:4px; margin-bottom:6px; } .family-illustration img { max-width:235px; } .family-form { gap:6px; } .family-form label { gap:3px; } .family-form input { min-height:40px; } .family-form .primary-button { min-height:42px; } .family-divider { margin-top:6px; margin-bottom:4px; } .family-join { min-height:40px; } .family-login { margin-top:6px; padding-bottom:4px; } }
 @keyframes screen-enter { from { opacity:0; transform:translateX(18px); } to { opacity:1; transform:translateX(0); } }
 @media (prefers-reduced-motion:reduce) { .primary-button,.secondary-button,.family-card { transition:none; animation:none; } }
