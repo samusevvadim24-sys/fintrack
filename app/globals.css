@@ -24,7 +24,7 @@ button { cursor:pointer; }
 .primary-button:focus-visible,.secondary-button:focus-visible { outline:3px solid rgb(26 115 232 / 30%); outline-offset:3px; }
 @media (hover:hover) { .primary-button:hover { background:#1769d1; } .secondary-button:hover { background:rgb(26 115 232 / 6%); } }
 
-.family-page { position:fixed; inset:0 auto auto 0; height:var(--app-height); transform:translate3d(0,var(--app-top),0); }
+.family-page { position:fixed; inset:0 auto auto 0; height:var(--app-height); transform:translate3d(0,var(--app-top),0); transition:height 220ms ease-out,transform 220ms ease-out; will-change:height,transform; }
 .family-card { width:100%; max-width:400px; height:var(--app-height); margin:0 auto; padding:max(18px,env(safe-area-inset-top)) 24px max(32px,env(safe-area-inset-bottom)); display:flex; flex-direction:column; overflow:hidden; animation:screen-enter 180ms ease-out both; }
 .family-header { flex:0 0 auto; }
 .family-header h1 { margin:0; color:var(--foreground); font-size:clamp(28px,7.5vw,36px); line-height:1.08; font-weight:700; letter-spacing:-.045em; }
@@ -47,4 +47,4 @@ button { cursor:pointer; }
 .family-login button { padding:0; border:0; background:none; color:var(--primary); font-weight:600; }
 @media (max-height:700px) { .family-card { padding-top:max(12px,env(safe-area-inset-top)); padding-bottom:max(20px,env(safe-area-inset-bottom)); } .family-header p { margin-top:7px; } .family-illustration { margin-top:4px; margin-bottom:6px; } .family-illustration img { max-width:none; width:calc(100% + 5px); } .family-form { gap:6px; } .family-form label { gap:3px; } .family-form input { min-height:40px; } .family-form .primary-button { min-height:42px; } .family-divider { margin-top:6px; margin-bottom:4px; } .family-join { min-height:40px; } .family-login { margin-top:6px; padding-bottom:4px; } }
 @keyframes screen-enter { from { opacity:0; transform:translateX(18px); } to { opacity:1; transform:translateX(0); } }
-@media (prefers-reduced-motion:reduce) { .primary-button,.secondary-button,.family-card { transition:none; animation:none; } }
+@media (prefers-reduced-motion:reduce) { .primary-button,.secondary-button,.family-card,.family-page { transition:none; animation:none; } }
