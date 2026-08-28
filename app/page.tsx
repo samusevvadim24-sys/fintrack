@@ -2,8 +2,8 @@ const illustration = `data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/sv
 
 export default function WelcomePage() {
   return (
-    <main className="welcome-shell">
-      <section className="welcome-card" aria-labelledby="welcome-title">
+    <main className="welcome-screen">
+      <section className="welcome-content" aria-labelledby="welcome-title">
         <div className="illustration-wrap">
           <img
             src={illustration}
@@ -11,20 +11,28 @@ export default function WelcomePage() {
           />
         </div>
 
-        <div className="content-wrap">
-          <div className="copy">
-            <h1 id="welcome-title">Добро<br />пожаловать</h1>
-            <p>Упростите совместное ведение<br />домашнего бюджета</p>
-          </div>
+        <div className="copy">
+          <h1 id="welcome-title">
+            Добро
+            <br />
+            пожаловать
+          </h1>
 
-          <div className="actions">
-            <button className="primary-button" type="button">
-              Начать
-            </button>
-            <button className="secondary-button" type="button">
-              Войти
-            </button>
-          </div>
+          <p>
+            Упростите совместное ведение
+            <br />
+            домашнего бюджета
+          </p>
+        </div>
+
+        <div className="actions">
+          <button className="primary-button" type="button">
+            Начать
+          </button>
+
+          <button className="secondary-button" type="button">
+            Войти
+          </button>
         </div>
       </section>
     </main>
