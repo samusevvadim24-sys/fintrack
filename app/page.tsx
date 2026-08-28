@@ -8,9 +8,10 @@ export default function WelcomePage() {
           <Image
             src="/images/welcome.jpg"
             alt="Иллюстрация совместного управления семейным бюджетом"
-            fill
+            width={360}
+            height={580}
             priority
-            sizes="(max-width: 599px) 90vw, 400px"
+            sizes="(max-width: 599px) 90vw, 360px"
           />
         </div>
 
