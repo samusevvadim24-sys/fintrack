@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { WelcomeActions } from "./components/WelcomeActions";
 
 export default function WelcomePage() {
   return (
@@ -28,14 +29,7 @@ export default function WelcomePage() {
           </p>
         </div>
 
-        <div className="actions">
-          <button className="primary-button" type="button">
-            Начать
-          </button>
-          <button className="secondary-button" type="button">
-            Войти
-          </button>
-        </div>
+        <WelcomeActions />
       </section>
     </main>
   );
